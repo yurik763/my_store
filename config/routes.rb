@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
-  #get "/items", to: "items#index"
+  resources :items do
+      member do
+         put "like", to: "items#upvote"
+         put "dislike", to: "items#downvote"
+      end
+   end
+   
+  devise_for :users
+  root to: "home#index"
 
-  resources :items
+  get 'home/index'
+  get 'about' => 'pages#about'
+
+  #resources :items
+
+
 end
