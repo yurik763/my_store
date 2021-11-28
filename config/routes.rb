@@ -7,13 +7,15 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'about' => 'pages#about'
 
-  resources :items
+  resources :items do
+    get :expensive, on: :collection
+  end
   
-  #resources :items do
-      #member do
-         #put "like", to: "items#upvote"
-         #put "dislike", to: "items#downvote"
-      #end
-   #end
+  resources :items do
+      member do
+        put "like", to: "items#upvote"
+        put "dislike", to: "items#downvote"
+      end
+   end
 
 end

@@ -4,4 +4,8 @@
 	<li><%= @item.price %>euro</li>
 	<li><%= @item.description %></li>
 	<li>Weight: <%=@item.weight %>kg</li>
+	<p>Upvotes <%= pluralize(number_to_human(@item.get_upvotes.size), 'Upvote') %></p>
+	<%= button_to "Upvote", like_item_path(@item), method: :put %>
+	<p>Downvotes <%= pluralize(number_to_human(@item.get_downvotes.size), 'Downvote') %></p>
+	<%= button_to "Downvote", dislike_item_path(@item), method: :put %>
 </ul>
