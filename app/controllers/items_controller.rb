@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 	
+	before_action :authenticate_user!, :only => [:show, :edit, :update, :create, :destroy, :upvote, :downvote]
 	before_action :find_item, only: [:show, :edit, :update, :destroy, :upvote, :downvote] #выполняется перед action
-	before_action :authenticate_user!, :only => [:edit, :update, :new, :create, :destroy] 
 	
 	def index
 		@items = Item.all
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 		if @item.errors.empty?
 			redirect_to item_path(@item)
 		else
-			render "new"
+			render 'new'
 		end
 	end
 
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 		if @item.errors.empty?
 			redirect_to item_path(@item)
 		else
-			render "edit"
+			redirect_to 'edit'
 		end
 	end
 
@@ -71,14 +71,14 @@ class ItemsController < ApplicationController
 
   	def find_item
   		@item = Item.find(params[:id])
-  	end
+   	end
 
   	#def check_if_admin
   		#render text: "Acces denied", status: 403 unless params[:admin]
   	#end
 
 	def item_params
-      params.require(:item).permit(:price, :name, :description, :weight)
+      params.require(:item).permit(:price, :name, :description, :weight, :id)
     end
 
 end

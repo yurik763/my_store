@@ -19,7 +19,7 @@
 			<td><%= link_to i.name, item_path(i) %></td>
 			<td><%= i.price %> euro.</td>
 			<td><%= i.weight %> kg.</td>
-			<td><%= link_to "Delete", i, method: :delete, data: { confirm: 'Действительно удалить?'}%></td>
+			<td><%= button_to "Delete", i, method: :delete, data: { confirm: 'Действительно удалить?'}%></td>
 
 
 	<% end %>

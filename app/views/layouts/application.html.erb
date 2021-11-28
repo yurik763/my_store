@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>MyStore</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,7 +17,7 @@
      <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/home/index">Главная <span class="sr-only"></span></a>
+          <a class="nav-link" href="/home/index">Главная <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/items">Товары</a>
@@ -32,11 +31,11 @@
       </ul>
       <span class="navbar-text">
           <% if user_signed_in? %>
-            Hello, <%= current_user.username%> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+            Hello, <%= current_user.username%> | <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
 
             <% else %>
 
-            <%= link_to "Sign In", new_user_session_path %>
+            <%= button_to "Sign In", new_user_session_path %>
 
             <% end %>
 
