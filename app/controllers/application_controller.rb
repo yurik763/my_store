@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     end
 
+    def render_404
+      render file: "public/404.html", status: 404
+    end
+
 end
