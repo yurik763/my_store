@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
  has_one :cart
  has_many :orders  #s т.к. множество можелей
+ has_many :comments
 end

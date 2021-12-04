@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   has_many :positions
   has_many :carts, through: :positions
 
+  has_many :comments, as: :commentable
+
   acts_as_votable
   
 
