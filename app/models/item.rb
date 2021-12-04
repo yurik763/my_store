@@ -6,7 +6,9 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
 
-  acts_as_votable
   has_and_belongs_to_many :carts
+
+  acts_as_votable
+  
 
 end
