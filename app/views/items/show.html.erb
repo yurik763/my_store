@@ -2,7 +2,7 @@
 
 <ul>
 	<li><%= @item.price %>euro</li>
-	<li><%= @item.description %></li>
+	<p><%= urls_to_links(urls_to_images(@item.description)) %></li>
 	<li>Weight: <%=@item.weight %>kg</li>
 	<p>Upvotes <%= pluralize(number_to_human(@item.get_upvotes.size), 'Upvote') %></p>
 	<%= button_to "Upvote", like_item_path(@item), method: :put %>
