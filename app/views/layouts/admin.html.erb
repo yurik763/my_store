@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyStore</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <div class="adminPanel">
+    	ADMIN
+    </div>
+  </head>
+
+ <body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home/index">Главная <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/items">Товары</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/items/new">Новый товар</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">Связаться с нами</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+          <% if user_signed_in? %>
+            Hello, <%= current_user.username%> | <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+
+            <% else %>
+
+            <%= button_to "Sign In", new_user_session_path %>
+
+            <% end %>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    
+      </span>
+    </div>
+    </nav>
+
+    <%= yield %>
+  </div>
+
+  </body>
+</html>

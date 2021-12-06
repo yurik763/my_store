@@ -18,4 +18,6 @@ Rails.application.routes.draw do
       end
    end
 
+  get "admin/users_count" => "admin#users_count"
+
 end

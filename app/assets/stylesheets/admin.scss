@@ -1,0 +1,12 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.adminPanel {
+	width: 90%;
+	min-width: 960px;
+	max-width: 1200px;
+	background: rgb(237, 228, 214);
+	margin: 0 auto;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	padding: .5em;
+}
