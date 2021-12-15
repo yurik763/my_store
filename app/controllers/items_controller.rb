@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 	
 	before_action :authenticate_user!, :only => [:show, :edit, :update, :create, :destroy, :upvote, :downvote]
 	before_action :find_item, only: [:show, :edit, :update, :destroy, :upvote, :downvote] #выполняется перед action
-	before_action :check_if_admin, only: [:edit, :new, :update, :create, :destroy]
+	#before_action :check_if_admin, only: [:edit, :new, :update, :create, :destroy]
 	
 	def index
 		@items = Item.all
@@ -80,9 +80,9 @@ class ItemsController < ApplicationController
   		render_404 unless @item
    	end
 
-  	def check_if_admin
-  		render_403 unless params[:admin]
-  	end
+  	#def check_if_admin
+  		#render_403 unless params[:admin]
+  	#end
 
 	def item_params
       params.require(:item).permit(:price, :name, :description, :weight, :id)
