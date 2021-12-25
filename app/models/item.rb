@@ -1,8 +1,11 @@
 class Item < ApplicationRecord
   #attr_accessor :price, :name, :real, :weight, :description
 
+  mount_uploader :image, ImageUploader
+
   validates :price, numericality: {greater_than: 0, allow_nil: true}
   validates :name, :description, presence: true
+  #validates_presence_of :image
 
   validates :name, presence: true
 
